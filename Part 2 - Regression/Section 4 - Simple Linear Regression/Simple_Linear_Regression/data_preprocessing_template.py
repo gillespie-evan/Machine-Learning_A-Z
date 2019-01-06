@@ -2,6 +2,20 @@
 """
 Created on Sun Jan  6 12:17:50 2019
 @author: gillespie.evan@gmail.com
+
+Simple Linear Regression Salary Data
+
+Simple Linear Regression y = b0 + b1*x1 #nums are subscript
+
+y is the dependent variable (DV) what are we looking for?
+x1 is the dependent variable (IV) our data to make predictions
+
+b1 is the coefficient that connects x1 and y
+b0 is the Constant
+
+The constant is where the DV starts on the X axis
+b1 is the slope
+
 """
 
 import numpy as np
