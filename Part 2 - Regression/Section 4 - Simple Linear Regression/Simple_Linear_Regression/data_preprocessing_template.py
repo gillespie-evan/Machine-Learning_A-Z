@@ -49,15 +49,21 @@ X_train = sc_X.fit_transform(X_train)
 X_test = sc_X.transform(X_test)
 """
 
- # Fitting SLR to the training set
- from sklearn.linear_model import LinearRegression
- regressor = LinearRegression()
- 
- regressor.fit(X_train, y_train)
+# Fitting SLR to the training set
+from sklearn.linear_model import LinearRegression
+regressor = LinearRegression()
+regressor.fit(X_train, y_train)
 
+# predict the Test results
+y_pred = regressor.predict(X_test)
 
-
-
+# visualize the training set results
+plt.scatter(X_train, y_train, color = 'red')
+plt.plot(X_train, regressor.predict(X_train), color = 'blue')
+plt.title('Salary vs Experience(Training Set)')
+plt.xlabel('Years of Experience')
+plt.ylabel('Salary')
+plt.show()
 
 
 
