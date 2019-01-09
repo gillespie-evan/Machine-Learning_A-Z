@@ -27,7 +27,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Import dataset
-dataset = pd.read_csv('Salary_Data.csv')
+dataset = pd.read_csv('titanic_Data.csv')
 
 # independant variables upper bound not inclusive
 # x is a matrix of IVs
