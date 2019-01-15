@@ -29,13 +29,28 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Import dataset
-dataset = pd.read_csv('data.csv')
+dataset = pd.read_csv('train.csv')
 
 # independant variables upper bound not inclusive
-X = dataset.iloc[:, 2:9].values
+X = dataset.iloc[:, 2:12].values
 
 # dependant variables
 y = dataset.iloc[:, 1].values
+
+# 1 - survived, 2 - pclass, 3 - name, 4 - sex, 5 - Age,
+# 6 - Sibs, 7 - Parents, 8 - Ticket, 9 - Fare, 10 - Cabin,
+# 11 - Port 
+
+# Encoding categorical data
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+labelencoder = LabelEncoder()
+X[:, 2] = labelencoder.fit_transform(X[:, 12])
+onehotencoder = OneHotEncoder(categorical_features = [3])
+X = onehotencoder.fit_transform(X).toarray()
+
+# Avoiding the Dummy Variable Trap
+X = X[:, 1:]
+
 
 # Taking care of missing data
 from sklearn.preprocessing import Imputer
